@@ -1,0 +1,28 @@
+{% extends 'pages/studentindex.html' %}
+{% load static %}
+{% block content%}
+<h1 style="text-align: center;">Grades for {{ student.FirstName }} {{ student.LastName }} in {{ course.CourseName }}</h1>
+<h3 style="text-align: center;">{{ course.YearAndSection }}</h3>
+
+<div class="row justify-content-center mt-3">
+<div class="col-10">
+  <table class="table table-dark table-striped table-hover">
+    <tr>
+      <td>Student Number</td>
+      <td>Last Name</td>
+      <td>First Name</td>
+      <td>Status</td>
+      <td>Grades</td>
+    </tr>
+    <tr>
+      <td>{{ student.StudentID }}</td>
+      <td>{{ student.LastName }}</td>
+      <td>{{ student.FirstName }}</td>
+      <td>{{ student.Status }}</td>
+      {% for grade in grades %}
+      <td>{{ grade.grade_value }}</td>
+      {% endfor %}
+    </tr>
+  </table>
+</div>
+{% endblock %}

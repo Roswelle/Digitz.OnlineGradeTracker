@@ -1,0 +1,17 @@
+{% extends 'pages/teacherindex.html'%}
+{% load static %}
+{% block content %}
+<h1>Profile</h1>
+<p>Profile Picture: {% if teacher_profile.Picture %}
+    <img src="{{ teacher_profile.Picture.url }}" alt="Profile Picture" style="height: 100px; width: 100px;">
+{% else %}
+    <img src="{% static 'images/default.png' %}" alt="Default Picture">
+{% endif %}</p>
+<p>Name: {{teacher.Teachername}}</p>
+<p>Department: {{teacher.Department}}</p>
+<p>Number: 0{{teacher.ContactNumber}}</p>
+<p>Email: {{teacher.Email}}</p>
+<br>
+<a href="{% url 'teacherform' teacher_pk=teacher.pk%}">Click to Edit</a>
+{% endblock %}
+

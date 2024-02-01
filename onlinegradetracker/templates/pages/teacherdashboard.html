@@ -1,0 +1,20 @@
+{% extends 'pages/teacherindex.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid mt-4">
+    <div class="row">
+      <div class="col-sm-6 mb-3 mb-sm-0">
+        <a href="{% url 'addcourse' teacher_pk=teacher.pk %}">Add Course</a>
+        {% for course in current_courses %}
+        <div class="card ms-3" style="width: 25rem;">
+          <h5 class="card-header">{{course.CourseName}}</h5>
+          <div class="card-body">
+            <h5 class="card-title">{{course.CourseID}}</h5>
+            <p class="card-text">{{course.YearAndSection}}</p>
+            <p class="card-text">Code for enrolling: {{course.CourseCode}}</p>
+            <a href="{% url 'teachergrading' teacher_pk=teacher.pk course_pk=course.pk %}" class="btn btn-primary">Input Grades</a>
+          </div>
+        </div>
+        {% endfor %}
+  </div>
+  {% endblock %}

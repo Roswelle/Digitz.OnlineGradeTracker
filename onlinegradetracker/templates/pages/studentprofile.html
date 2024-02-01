@@ -1,0 +1,16 @@
+{% extends 'pages/studentindex.html'%}
+{% load static %}
+{% block content %}
+{% load static%}
+<h1>Profile</h1>
+<p>Profile Picture: {% if student_profile.Picture %}
+    <img src="{{ student_profile.Picture.url }}" alt="Profile Picture" style="height: 100px; width: 100px;">
+{% else %}
+    <img src="{% static 'images/default.png' %}" alt="Default Picture">
+{% endif %}</p></p>
+<p>Name: {{ student.FirstName}} {{ student.LastName}}</p>
+<p>Student ID: {{ student.StudentID}}</p>
+<p>Number: 0{{ student.ContactNumber}}</p>
+<p>Email: {{student.Email}}</p>
+<a href="{% url 'studentform' student_pk=student.pk%}">Click to Edit</a>
+{% endblock %}

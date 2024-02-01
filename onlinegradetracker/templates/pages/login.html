@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">
+    <title>Login</title>
+</head>
+<body>
+    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+        <div class="container-fluid">
+            <span class="navbar-text">
+                R.A.M
+            </span>
+        </div>
+    </nav>
+    <div class="card text-center card mx-auto card my-5" style="width: 25rem;">
+        <div class="card-header">
+            Welcome User!
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Login</h5>
+            <form method="POST" action="{% url 'login' %}">
+              {% csrf_token %}
+              <div class="mb-3">
+                  <label for="username" class="form-label">Username:</label>
+                  <input type="text" id="username" name="username" class="form-control" required>
+              </div>
+              <div class="mb-3">
+                  <label for="password" class="form-label">Password:</label>
+                  <input type="password" id="password" name="password" class="form-control" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Login</button>
+              {% if error %}
+                  <p class="text-danger">{{ error }}</p>
+              {% endif %}
+            </form>
+        </div>
+        <div class="card-footer text-body-secondary">
+            Don't have an account yet?<br>
+            <a href="{% url 'register' %}" class="btn btn-primary">Register</a>
+        </div>
+    </div>
+</body>
+</html>

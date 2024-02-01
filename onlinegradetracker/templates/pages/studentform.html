@@ -1,0 +1,10 @@
+{% extends 'pages/studentindex.html' %}
+{% load static %}
+{% block content%}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ profile_form.as_p }}
+    {{ student_form.as_p }}
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}

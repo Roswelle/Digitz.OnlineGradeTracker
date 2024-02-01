@@ -1,0 +1,22 @@
+{% extends 'pages/studentindex.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid mt-4">
+    <div class="row">
+      <div class="col-sm-6 mb-3 mb-sm-0">
+        <!--Enrollment-->
+        <a href= "{% url 'enrollform' student_pk=student.pk %}">Enroll to a Course</a>
+        <!--Modal Content-->
+        {% for course in enrolled_courses %}
+        <div class="card ms-3" style="width: 25rem;">
+          <h5 class="card-header">{{ course.CourseName}}</h5>
+          <div class="card-body">
+            <h5 class="card-title">{{ course.CourseID}}</h5>
+            <p class="card-text">{{ course.YearAndSection}}</p>
+            <a href="{% url 'studentgrades' student_pk=student.pk course_pk=course.pk %}" class="btn btn-primary">View Grades</a>
+          </div>
+        </div>
+    </div>
+  </div>
+  {% endfor %}
+{% endblock %}

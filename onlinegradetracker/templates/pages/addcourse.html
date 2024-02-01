@@ -1,0 +1,10 @@
+{% extends 'pages/teacherindex.html' %}
+{% load static %}
+{% block content %}
+<form method="POST" action="">
+  {% csrf_token %}
+  {{form.as_p}}
+  <button type="submit">Add Course</button>
+</form>
+{% endblock %}
+

@@ -1,0 +1,10 @@
+{% extends 'pages/studentindex.html' %}
+{% load static %}
+{% block content%}
+<h2>Enroll in a Course</h2>
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enroll</button>
+    </form>
+{% endblock %}

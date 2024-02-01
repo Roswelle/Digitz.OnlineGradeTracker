@@ -1,0 +1,11 @@
+<nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+    <div class="topnav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-3">
+        <li class="nav">
+          <h5><a class="nav-link active h1" aria-current="page" href="{% url 'teacherdashboard' teacher_pk=teacher.pk %}">Home</a></h5>
+          <h5><a class="nav-link h1" href="{% url 'teacherprofile' teacher_pk=teacher.pk %}">Profile</a></h5>
+          <h5><a class="nav-link h1" href="{% url 'about' teacher_pk=teacher.pk%}">About</a></h5>
+          <h5><a class="nav-link h1" href="{% url 'login'%}">Logout</a></h5>
+        </li>
+    </div>
+</nav>
